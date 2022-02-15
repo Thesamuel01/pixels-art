@@ -17,7 +17,7 @@
   background-color: green;
 }
 
-/* Trecho baseado no artigo sobre espacos em branco de elementos inline-block link"https://css-tricks.com/fighting-the-space-between-inline-block-elements/ */
+/* Trecho baseado no artigo do CSSTricks link"https://css-tricks.com/fighting-the-space-between-inline-block-elements/ */
 .line {
   font-size: 0px;
 }
@@ -25,6 +25,7 @@
 .pixel {
   background-color: white;
   border: 1px solid black;
+  
   /* Trecho baseado no artigo de box-sizing link:https://css-tricks.com/box-sizing/ */
   box-sizing: border-box;
   display: inline-block;
