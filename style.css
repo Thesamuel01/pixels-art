@@ -1,0 +1,28 @@
+.yellow {
+  background-color: yellow;
+}
+
+.blue { 
+  background-color: blue;
+}
+
+.color {
+  border: 1px solid black;
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+}
+
+.color-palette {
+  display: flex;
+  justify-content: space-around;
+  width: 50%;
+}
+
+.green {
+  background-color: green;
+}
+
+.red {
+  background-color: red;
+}
