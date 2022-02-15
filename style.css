@@ -25,9 +25,11 @@
 .pixel {
   background-color: white;
   border: 1px solid black;
+  /* Trecho baseado no artigo de box-sizing link:https://css-tricks.com/box-sizing/ */
+  box-sizing: border-box;
   display: inline-block;
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
 }
 
 .red {
