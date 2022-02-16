@@ -1,3 +1,5 @@
+const pixelBoard = document.querySelector('#pixel-board');
+
 function removeSelectedClass(colorItems) {
   for (let index = 0; index < colorItems.length; index += 1) {
     const element = colorItems[index];
@@ -33,8 +35,6 @@ function changeBackgroundColor(element, color) {
 }
 
 function changePixelColor() {
-  const pixelBoard = document.querySelector('#pixel-board');
-
   pixelBoard.addEventListener('click', (event) => {
     event.preventDefault();
 
@@ -72,8 +72,7 @@ function createPixel() {
   return div;
 }
 
-function fillLines(lines) {
-  const pixelBoard = document.querySelector('#pixel-board');
+function createLine(lines) {
   const line = document.createElement('div');
   line.classList.add('line');
 
@@ -83,50 +82,53 @@ function fillLines(lines) {
     line.appendChild(pixel);
   }
 
-  pixelBoard.appendChild(line);
+  return line;
 }
 
-function removeOldBoard(pixelBoard) {
+function createBoard(lines) {
+  for (let index = 0; index < lines; index += 1) {
+    const line = createLine(lines);
+
+    pixelBoard.appendChild(line);
+  }
+}
+
+function removeOldBoard() {
   const lines = document.querySelectorAll('.line');
 
-  console.log('aqui');
   for (let index = 0; index < lines.length; index += 1) {
     const element = lines[index];
-    console.log(pixelBoard);
+
     pixelBoard.removeChild(element);
   }
 }
 
-function createNewPixelBoard() {
+function createNewBoard() {
   const generateButton = document.querySelector('#generate-board');
   generateButton.addEventListener('click', (event) => {
     event.preventDefault();
 
     const inputValue = document.querySelector('#board-size').value;
-    const pixelBoard = document.querySelector('#pixel-board');
+    let boardSize = inputValue < 5 ? 5 : inputValue;
+    boardSize = inputValue > 50 ? 50 : boardSize;
 
     if (inputValue === '') {
       alert('Board inválido!');
       return;
     }
 
-    removeOldBoard(pixelBoard);
-
-    for (let index = 0; index < inputValue; index += 1) {
-      fillLines(inputValue);
-    }
+    removeOldBoard();
+    createBoard(boardSize);
   });
 }
 
 window.onload = () => {
   const defaultNumberOfLines = 5;
 
-  for (let index = 0; index < defaultNumberOfLines; index += 1) {
-    fillLines(defaultNumberOfLines);
-  }
+  createBoard(defaultNumberOfLines);
 };
 
 addSelectClassInTheElement();
 changePixelColor();
 clearPixelBoard();
-createNewPixelBoard();
+createNewBoard();
