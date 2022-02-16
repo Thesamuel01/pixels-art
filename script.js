@@ -26,11 +26,11 @@ function addSelectClassInTheElement() {
   });
 }
 
-function changeBackgroundColor(elementClicked, colorSelected) {
+function changeBackgroundColor(clickedElement, colorSelected) {
   // Trecho basedo artigo do link:https://zellwk.com/blog/css-values-in-js/
   const style = getComputedStyle(colorSelected);
   const color = style.backgroundColor;
-  const element = elementClicked;
+  const element = clickedElement;
 
   element.style.backgroundColor = color;
 }
@@ -42,14 +42,30 @@ function changePixelColor() {
     event.preventDefault();
 
     const colorSelected = document.querySelector('.selected');
-    const elementClicked = event.target;
-    const hasClassPixels = elementClicked.className.includes('pixel');
+    const clickedElement = event.target;
+    const hasClassPixels = clickedElement.className.includes('pixel');
 
     if (hasClassPixels) {
-      changeBackgroundColor(elementClicked, colorSelected);
+      changeBackgroundColor(clickedElement, colorSelected);
+    }
+  });
+}
+
+function clearPixelBoard() {
+  const button = document.querySelector('#clear-board');
+
+  button.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    const pixels = document.querySelectorAll('.pixel');
+
+    for (let index = 0; index < pixels.length; index += 1) {
+      const element = pixels[index];
+      element.style.backgroundColor = 'white';
     }
   });
 }
 
 addSelectClassInTheElement();
 changePixelColor();
+clearPixelBoard();
