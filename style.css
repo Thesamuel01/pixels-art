@@ -2,10 +2,6 @@
   background-color: black;
 }
 
-.blue {
-  background-color: blue;
-}
-
 .color {
   border: 1px solid black;
   display: inline-block;
@@ -15,10 +11,6 @@
 
 .color:hover {
   cursor: pointer;
-}
-
-.green {
-  background-color: green;
 }
 
 /* Trecho baseado no artigo do CSSTricks
@@ -42,8 +34,4 @@ link:https://css-tricks.com/box-sizing/ */
 
 .pixel:hover {
   cursor: pointer;
-}
-
-.red {
-  background-color: red;
 }

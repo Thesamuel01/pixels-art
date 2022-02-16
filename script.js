@@ -1,6 +1,7 @@
 const pixelBoard = document.querySelector('#pixel-board');
+const colorItems = document.querySelectorAll('.color');
 
-function removeSelectedClass(colorItems) {
+function removeSelectedClass() {
   for (let index = 0; index < colorItems.length; index += 1) {
     const element = colorItems[index];
 
@@ -12,7 +13,6 @@ function removeSelectedClass(colorItems) {
 
 function addSelectClassInTheElement() {
   const colorPallete = document.querySelector('#color-palette');
-  const colorItems = document.querySelectorAll('.color');
 
   colorPallete.addEventListener('click', (event) => {
     event.preventDefault();
@@ -21,7 +21,7 @@ function addSelectClassInTheElement() {
     const hasClassColor = element.className.includes('color');
 
     if (hasClassColor) {
-      removeSelectedClass(colorItems);
+      removeSelectedClass();
 
       element.classList.add('selected');
     }
@@ -122,10 +122,23 @@ function createNewBoard() {
   });
 }
 
+function generatePalleteColors() {
+  for (let index = 1; index < colorItems.length; index += 1) {
+    const element = colorItems[index];
+    const firstRandomNumber = Math.ceil(Math.random() * 255);
+    const secondRandomNumber = Math.ceil(Math.random() * 255);
+    const thirdRandomNumber = Math.ceil(Math.random() * 255);
+    const randomColor = `rgb(${firstRandomNumber}, ${secondRandomNumber}, ${thirdRandomNumber})`;
+
+    element.style.backgroundColor = randomColor;
+  }
+}
+
 window.onload = () => {
   const defaultNumberOfLines = 5;
 
   createBoard(defaultNumberOfLines);
+  generatePalleteColors();
 };
 
 addSelectClassInTheElement();
