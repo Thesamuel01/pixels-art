@@ -1,3 +1,77 @@
+body {
+  background-color: rgb(199, 199, 255);
+}
+
+#app_container {
+  background-color: white;
+  border: 5px solid black;
+  border-radius: 25px;
+  height: auto;
+  padding: 25px;
+}
+
+#board-size {
+  height: 21px;
+  vertical-align: middle;
+}
+
+#button-container {
+  margin: 15px ;
+  text-align: center;
+}
+
+#container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+  width: 100vw;
+}
+
+#color-palette {
+  margin: 15px auto;
+  text-align: center;
+}
+
+#clear-board {
+  background-color: red;
+  border-radius: 25px;
+  color: azure;
+  font-size: 18px;
+  height: 40px;
+  width: 80px;
+}
+
+#clear-board:hover {
+  cursor: pointer;
+}
+
+#generate-board {
+  background-color: lightgreen;
+  border-radius: 5px;
+  font-size: 18px;
+  height: 30px;
+  vertical-align: middle;
+}
+
+#generate-board:hover {
+  cursor: pointer;
+}
+
+#generate_menu {
+  margin: 15px 0px;
+}
+
+#pixel-board {
+  text-align: center;
+}
+
+#title {
+  text-align: center;
+  margin-top: 0px;
+}
+
+
 .black {
   background-color: black;
 }
